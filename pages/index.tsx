@@ -8,7 +8,8 @@ import { Inter } from 'next/font/google';
 import ProfileButton from '../components/profileButton';
 import Login from './login.jsx';
 import Account from './account.jsx';
-import DisplayTable from '../components/displayTable.js';
+import TableUser from '../components/tableUser.jsx';
+import TableOrder from '../components/tableOrder.jsx';
 
 const inter = Inter({ subsets: ['latin'] })
 /*
@@ -27,7 +28,6 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-
-    <Account  /> 
+    <TableOrder/> 
   )
 }
