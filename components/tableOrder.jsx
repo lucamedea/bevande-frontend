@@ -1,31 +1,51 @@
-import { Table } from "@nextui-org/react";
+import React, { useState, useEffect } from 'react';
 
-export default function App() {
+function Table() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // Effettua la richiesta API per recuperare i dati dal database
+    fetch("http://bevanderia.altervista.org/bevandeapi/API/ordine/getArchiveOrders.php")
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        setData(data);
+      })
+      .catch(error => {
+        console.error('Errore nella richiesta:', error);
+      });
+  }, []);
+
   return (
-    <Table
-      aria-label="Example static collection table"
-      css={{
-        height: "auto",
-        minWidth: "100%",
-      }}
-      selectionMode="single"
-    >
-      <Table.Header>
-        <Table.Column>Id</Table.Column>
-        <Table.Column>Nome e cognome</Table.Column>
-        <Table.Column>Totale</Table.Column>
-        <Table.Column>Email</Table.Column>
-        <Table.Column>Telefono</Table.Column>
-      </Table.Header>
-      <Table.Body>
-        <Table.Row key="1">
-          <Table.Cell>Tony Reichert</Table.Cell>
-          <Table.Cell>CEO</Table.Cell>
-          <Table.Cell>Active</Table.Cell>
-          <Table.Cell>Active</Table.Cell>
-          <Table.Cell>Active</Table.Cell>
-        </Table.Row>
-      </Table.Body>
-    </Table>
+    <table>
+      <thead>
+        <tr>
+          <th>data_ora</th>
+          <th>totale</th>
+          <th>nome_cliente</th>
+          <th>cognome_cliente</th>
+          <th>email_cliente</th>
+          <th>telefono_cliente</th>
+          <th>indirizzo_cliente</th>
+          <th>ritiro</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((item, index) => (
+          <tr key={index}>
+            <td>{item.data_ora}</td>
+            <td>{item.totale}</td>
+            <td>{item.nome_cliente}</td>
+            <td>{item.cognome_cliente}</td>
+            <td>{item.email_cliente}</td>
+            <td>{item.telefono_cliente}</td>
+            <td>{item.indirizzo_cliente}</td>
+            <td>{item.ritiro}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 }
+
+export default Table;
