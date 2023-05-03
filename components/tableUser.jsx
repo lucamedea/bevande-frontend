@@ -1,33 +1,45 @@
-import { Table } from "@nextui-org/react";
+import React, { useState, useEffect } from 'react';
 
-export default function App() {
+function Table() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // Effettua la richiesta API per recuperare i dati dal database
+    fetch("http://bevanderia.altervista.org/bevandeapi/API/utente/getArchiveUsers.php")
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        setData(data);
+      })
+      .catch(error => {
+        console.error('Errore nella richiesta:', error);
+      });
+  }, []);
+
   return (
-    <Table
-      aria-label="Example static collection table"
-      css={{
-        height: "auto",
-        minWidth: "100%",
-      }}
-      selectionMode="single"
-    >
-      <Table.Header>
-        <Table.Column>Id</Table.Column>
-        <Table.Column>Nome</Table.Column>
-        <Table.Column>Cognome</Table.Column>
-        <Table.Column>Email</Table.Column>
-        <Table.Column>Telefono</Table.Column>
-        <Table.Column>Data di nascita</Table.Column>
-      </Table.Header>
-      <Table.Body>
-        <Table.Row key="1">
-          <Table.Cell>Tony Reichert</Table.Cell>
-          <Table.Cell>CEO</Table.Cell>
-          <Table.Cell>Active</Table.Cell>
-          <Table.Cell>Active</Table.Cell>
-          <Table.Cell>Active</Table.Cell>
-          <Table.Cell>Active</Table.Cell>
-        </Table.Row>
-      </Table.Body>
-    </Table>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Cognome</th>
+          <th>Email</th>
+          <th>Telefono</th>
+          <th>Data di nascita</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((item, index) => (
+          <tr key={index}>
+            <td>{item.nome}</td>
+            <td>{item.cognome}</td>
+            <td>{item.email}</td>
+            <td>{item.telefono}</td>
+            <td>{item.data_di_nascita}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 }
+
+export default Table;
