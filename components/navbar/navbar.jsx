@@ -1,7 +1,6 @@
 import React from "react";
 import { Navbar, Button, Link, Text, useTheme,Spacer } from "@nextui-org/react";
 import { Layout } from './layout.jsx';
-
 export default function Navbar1() {
   const variant="highlight-rounded";
   const activeColor="secondary";
@@ -10,7 +9,7 @@ export default function Navbar1() {
   
   return (
     <Layout>
-      <Navbar isBordered={isDark} variant="sticky">
+      <Navbar sx={{outerWidth:"100px"}} isBordered={isDark} variant="sticky">
         <Navbar.Brand>
           <Text style={{ font:"status-bar"}} b color="inherit" hideIn="xs">
             BEVANDERIA

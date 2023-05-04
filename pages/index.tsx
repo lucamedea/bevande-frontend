@@ -28,6 +28,9 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
-    <TableOrder/> 
+    <>
+        <Navbar1/>
+        <Account/> 
+    </>
   )
 }
