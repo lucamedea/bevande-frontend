@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 
 function Table() {
   const [data, setData] = useState([]);
@@ -27,7 +29,7 @@ function Table() {
           <th>email_cliente</th>
           <th>telefono_cliente</th>
           <th>indirizzo_cliente</th>
-          <th>ritiro</th>
+          <th>dettagli ordine</th>
         </tr>
       </thead>
       <tbody>
@@ -40,7 +42,8 @@ function Table() {
             <td>{item.email_cliente}</td>
             <td>{item.telefono_cliente}</td>
             <td>{item.indirizzo_cliente}</td>
-            <td>{item.ritiro}</td>
+            <td>
+            <Route path="../components/tableDettagliOrdini.jsx">Vai alla mia pagina</Route></td>
           </tr>
         ))}
       </tbody>
