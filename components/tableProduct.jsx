@@ -1,33 +1,47 @@
-import { Table } from "@nextui-org/react";
+import React, { useState, useEffect } from 'react';
 
-export default function App() {
+function Table() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // Effettua la richiesta API per recuperare i dati dal database
+    fetch("http://bevanderia.altervista.org/bevandeapi/API/prodotto/getArchiveProducts.php")
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        setData(data);
+      })
+      .catch(error => {
+        console.error('Errore nella richiesta:', error);
+      });
+  }, []);
+
   return (
-    <Table
-      aria-label="Example static collection table"
-      css={{
-        height: "auto",
-        minWidth: "100%",
-      }}
-      selectionMode="single"
-    >
-      <Table.Header>
-        <Table.Column>Bibita</Table.Column>
-        <Table.Column>Categoria</Table.Column>
-        <Table.Column>Quantità</Table.Column>
-        <Table.Column>Prezzo</Table.Column>
-        <Table.Column>Attivo</Table.Column>
-        <Table.Column>Descrizione</Table.Column>
-      </Table.Header>
-      <Table.Body>
-        <Table.Row key="1">
-          <Table.Cell>Tony Reichert</Table.Cell>
-          <Table.Cell>CEO</Table.Cell>
-          <Table.Cell>Active</Table.Cell>
-          <Table.Cell>Active</Table.Cell>
-          <Table.Cell>Active</Table.Cell>
-          <Table.Cell>Active</Table.Cell>
-        </Table.Row>
-      </Table.Body>
-    </Table>
+    <table>
+      <thead>
+        <tr>
+          <th>nome</th>
+          <th>prezzo</th>
+          <th>descrizione</th>
+          <th>id_categoria</th>
+          <th>quantita</th>
+          <th>attivo</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((item, index) => (
+          <tr key={index}>
+            <td>{item.nome}</td>
+            <td>{item.prezzo}</td>
+            <td>{item.descrizione}</td>
+            <td>{item.id_categoria}</td>
+            <td>{item.quantita}</td>
+              {item.active == 1 ? <td>Attivo</td> : <td>Passivo</td>}
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 }
+
+export default Table;
