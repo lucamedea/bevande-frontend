@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route, Routes, useRoutes } from 'react-router-dom';
 
 function Table() {
   const [data, setData] = useState([]);
@@ -20,10 +22,10 @@ function Table() {
     <table>
       <thead>
         <tr>
-          <th>nome</th>
-          <th>prezzo</th>
+          <th>prodotto</th>
           <th>descrizione</th>
-          <th>id_categoria</th>
+          <th>prezzo</th>
+          <th>categoria</th>
           <th>quantita</th>
           <th>attivo</th>
         </tr>
@@ -32,11 +34,11 @@ function Table() {
         {data.map((item, index) => (
           <tr key={index}>
             <td>{item.nome}</td>
-            <td>{item.prezzo}</td>
             <td>{item.descrizione}</td>
-            <td>{item.id_categoria}</td>
+            <td>{item.prezzo}</td>
+            <td>{item.categoria_nome}</td>
             <td>{item.quantita}</td>
-              {item.active == 1 ? <td>Attivo</td> : <td>Passivo</td>}
+            <td>{item.active}</td>
           </tr>
         ))}
       </tbody>
