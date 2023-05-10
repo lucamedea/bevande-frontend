@@ -4,9 +4,9 @@ import DisabledTextField from '../components/disabledTextField.jsx';
 import TextField from "../components/textField.jsx";
 import PasswordTextField from "../components/passwordTextField";
 import SubmitButton from "../components/submitButton.jsx";
-
+import PrivacyPolicy from "../components/modals/privacyPolicy";
+import TermsConditions from '../components/modals/termsConditions';
 const Settings = () => {
-  const [showDeleteAccount, setShowDeleteAccount] = useState(false);
   const [showChange, setShowChange] = useState(false);
   const [showTerms, setShowTerms] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
@@ -63,6 +63,16 @@ const Settings = () => {
           <SubmitButton width="200px" text="Exit" />
           <Spacer x="7"/>
           <SubmitButton width="200px" text="Change Password"/>
+          </Row>
+          <Row  justify="center"
+        xs={12}
+        style={{
+        alignContent:"center",
+        }}>
+          <PrivacyPolicy width="800px" show={showPrivacy} close={()=>setShowPrivacy(false)}/>
+          <Spacer x="7"/>
+          <TermsConditions width="800px" show={showTerms} close={()=>setShowTerms(false)}/>
+
           </Row>
     </Grid.Container>
 
