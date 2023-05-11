@@ -22,25 +22,27 @@ function Table() {
     <table>
       <thead>
         <tr>
-          <th>data_ora</th>
-          <th>totale</th>
-          <th>nome_cliente</th>
-          <th>cognome_cliente</th>
-          <th>email_cliente</th>
-          <th>telefono_cliente</th>
-          <th>indirizzo_cliente</th>
+          <th>Nome cliente</th>
+          <th>Cognome cliente</th>
+          <th>Email cliente</th>
+          <th>Telefono cliente</th>
+          <th>Data</th>
+          <th>Totale</th>
+          <th>Prodotti</th>
+          <td>Ritiro</td>
         </tr>
       </thead>
       <tbody>
         {data.map((item, index) => (
           <tr key={index}>
+            <td>{item.nome_user}</td>
+            <td>{item.cognome}</td>
+            <td>{item.email}</td>
+            <td>{item.telefono}</td>
             <td>{item.data_ora}</td>
             <td>{item.totale}</td>
-            <td>{item.nome_cliente}</td>
-            <td>{item.cognome_cliente}</td>
-            <td>{item.email_cliente}</td>
-            <td>{item.telefono_cliente}</td>
-            <td>{item.indirizzo_cliente}</td>
+            <td>{item.nome_prodotto}</td>
+            <td>{item.ritiro}</td>
           </tr>
         ))}
       </tbody>
