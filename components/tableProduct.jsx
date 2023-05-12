@@ -26,6 +26,10 @@ function Table() {
           <th>Prezzo</th>
           <th>Categoria</th>
           <th>Quantità</th>
+          <th>Grassi</th>
+          <th>Kcal</th>
+          <th>Proteine</th>
+          <th>Zuccheri</th>
           <th>Attivo</th>
         </tr>
       </thead>
