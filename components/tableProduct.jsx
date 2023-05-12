@@ -37,6 +37,10 @@ function Table() {
             <td>{item.prezzo}</td>
             <td>{item.categoria_nome}</td>
             <td>{item.quantita}</td>
+            <td>{item.Fats}</td>
+            <td>{item.Kcal}</td>
+            <td>{item.Proteins}</td>
+            <td>{item.Sugars}</td>
             <td>{item.active == 1 ? 'Attivo' : 'Disattivo'}</td>
           </tr>
         ))}
