@@ -10,13 +10,12 @@ import Login from './login.jsx';
 import Account from './account.jsx';
 import TableUser from '../components/tableUser.jsx';
 import TableOrder from '../components/tableOrder.jsx';
-
 const inter = Inter({ subsets: ['latin'] })
 /*
 <TextField placeholder="email" width="500px" label="prova" handleChange={1} initialValue=""/>
 <SubmitButton height="80px" width="200px" text="Aggiungi"  onPress={1} textSize="11"/>
 <PasswordField placeholder="email" width="500px" label="prova" handleChange={1} initialValue=""/>
-<AddProduct width="800px" height="800px" show={1} close={0}> </AddProduct>
+
  <SelectActive width="300px" height="50px" boolActive="false" /> 
      <ProfileButton onPress={1} />
          <Navbar1/>
@@ -25,12 +24,11 @@ const inter = Inter({ subsets: ['latin'] })
 
 */
 
-
 export default function Home() {
   return (
-    <>
-        <Navbar1/>
-        <Account/> 
+<>
+<Navbar1/>
+<Account/>
     </>
   )
 }
