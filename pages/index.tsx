@@ -27,8 +27,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
 <>
-<Navbar1/>
-<Account/>
+<Login setToken="1"/>
     </>
   )
 }

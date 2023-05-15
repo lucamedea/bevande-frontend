@@ -48,16 +48,13 @@ export default function Navbar1() {
         <Navbar.Content activeColor={activeColor} hideIn="xs" variant={variant}>
           <Navbar.Link style={{ font:"status-bar"}} isActive={activeProducts} onPress={handlerProducts} href='/products'>PRODOTTI</Navbar.Link>
           <Spacer x="0.9"/>
-          <Navbar.Link style={{ font:"status-bar"}} isActive={activeNV} onPress={handlerNV} href='/nutritionalValues'>VALORI NUTRIZIONALI</Navbar.Link>
+          <Navbar.Link style={{ font:"status-bar"}} isActive={activeNV} onPress={handlerNV} href='/users'>UTENTI</Navbar.Link>
           <Spacer x="0.9"/>
-          <Navbar.Link style={{ font:"status-bar"}} isActive={activeUsers} onPress={handlerUsers} href='/users'>UTENTI</Navbar.Link>
+          <Navbar.Link style={{ font:"status-bar"}} isActive={activeUsers} onPress={handlerUsers} href='/orders'>ORDINI</Navbar.Link>
           <Spacer x="0.9"/>
-          <Navbar.Link style={{ font:"status-bar"}} isActive={activeOrders} onPress={handlerOrders}  href='/orders'>ORDINI</Navbar.Link>
+          <Navbar.Link style={{ font:"status-bar"}} isActive={activeOrders} onPress={handlerOrders}  href='/account'>ACCOUNT</Navbar.Link>
         </Navbar.Content>
         <Navbar.Content>
-          <Navbar.Link style={{ font:"status-bar"}} color="inherit" href='/account'>
-            Account
-          </Navbar.Link>
           <Navbar.Item>
             <Button style={{ font:"status-bar"}} auto flat as={Link} color={activeColor} href="#">
               Logout

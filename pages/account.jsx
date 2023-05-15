@@ -75,7 +75,6 @@ const Settings = () => {
 
           </Row>
     </Grid.Container>
-
   );
 };
 

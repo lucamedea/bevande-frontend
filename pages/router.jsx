@@ -26,12 +26,12 @@ function Router() {
           </Grid>
           <Grid>
             <Routes>
-              <Route path="/" element={<Products />} />
+              <Route path="/" element={<Login />} />
               <Route path="/nutritionalValues" element={<NutritionalValues />} />
               <Route path="/users" element={<Users />} />
               <Route path="/orders" element={<Orders />} />
               <Route path="/account" element={<Account />} />
-              <Route path="/login" element={<Login />} />
+              <Route path="/products" element={<Products />} />
             </Routes>
           </Grid>
         </Grid.Container>
