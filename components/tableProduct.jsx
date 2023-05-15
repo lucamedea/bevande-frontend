@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route, Routes, useRoutes } from 'react-router-dom';
 
 function Table() {
   const [data, setData] = useState([]);
@@ -22,12 +21,16 @@ function Table() {
     <table>
       <thead>
         <tr>
-          <th>prodotto</th>
-          <th>descrizione</th>
-          <th>prezzo</th>
-          <th>categoria</th>
-          <th>quantita</th>
-          <th>attivo</th>
+          <th>Prodotto</th>
+          <th>Descrizione</th>
+          <th>Prezzo</th>
+          <th>Categoria</th>
+          <th>Quantità</th>
+          <th>Grassi</th>
+          <th>Kcal</th>
+          <th>Proteine</th>
+          <th>Zuccheri</th>
+          <th>Attivo</th>
         </tr>
       </thead>
       <tbody>
@@ -38,7 +41,11 @@ function Table() {
             <td>{item.prezzo}</td>
             <td>{item.categoria_nome}</td>
             <td>{item.quantita}</td>
-            <td>{item.active}</td>
+            <td>{item.Fats}</td>
+            <td>{item.Kcal}</td>
+            <td>{item.Proteins}</td>
+            <td>{item.Sugars}</td>
+            <td>{item.active == 1 ? 'Attivo' : 'Disattivo'}</td>
           </tr>
         ))}
       </tbody>
