@@ -1,6 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useState, useEffect } from 'react';
+import { Table } from "@nextui-org/react";
 
-function Table() {
+
+function Tabella() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -17,29 +20,38 @@ function Table() {
   }, []);
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Cognome</th>
-          <th>Email</th>
-          <th>Telefono</th>
-          <th>Data di nascita</th>
-        </tr>
-      </thead>
-      <tbody>
+    <Table
+    aria-label="Example static collection table"
+    css={{
+      height: "auto",
+      minWidth: "100%",
+    }}
+    selectionMode="single"
+  >
+<Table.Header>
+        <Table.Column>Nome</Table.Column>
+        <Table.Column>Cognome</Table.Column>
+        <Table.Column>Email</Table.Column>
+        <Table.Column>Password</Table.Column>
+        <Table.Column>Telefono</Table.Column>
+        <Table.Column>Data di nascita</Table.Column>
+        <Table.Column>Attivo</Table.Column>
+      </Table.Header>
+      <Table.Body>
         {data.map((item, index) => (
-          <tr key={index}>
-            <td>{item.nome}</td>
-            <td>{item.cognome}</td>
-            <td>{item.email}</td>
-            <td>{item.telefono}</td>
-            <td>{item.data_di_nascita}</td>
-          </tr>
+          <Table.Row>
+            <Table.Cell>{item.nome}</Table.Cell>
+            <Table.Cell>{item.cognome}</Table.Cell>
+            <Table.Cell>{item.email}</Table.Cell>
+            <Table.Cell>{item.password}</Table.Cell>
+            <Table.Cell>+{item.telefono}</Table.Cell>
+            <Table.Cell>{item.data_nascita}</Table.Cell>
+            <Table.Cell>{item.active == 1 ? 'Attivo' : 'Eliminato'}</Table.Cell>
+            </Table.Row>
         ))}
-      </tbody>
-    </table>
+      </Table.Body>
+    </Table>
   );
 }
 
-export default Table;
+export default Tabella;
