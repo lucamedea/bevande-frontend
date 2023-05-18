@@ -2,9 +2,12 @@
 import React, { useState } from "react";
 import { Grid, Text,Row, Spacer } from "@nextui-org/react";
 import TableProduct from '../components/tableProduct';
+import NavBar1 from '../components/navbar/navbar';
 
 const Products = () => {
     return(
+      <>
+<NavBar1/>
     <Grid.Container style={{ height: "100vh", width: "100vw", background:"white"}}>
     <Row
     justify="center"
@@ -17,6 +20,7 @@ const Products = () => {
 <TableProduct/>
   </Row>
   </Grid.Container>
+  </>
     );
 }
 export default Products;

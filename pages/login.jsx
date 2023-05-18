@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import TextField from '../components/textField.jsx';
 import PasswordTextField from '../components/passwordTextField.jsx';
 import Button from '../components/submitButton.jsx';
+import { Login } from "./api/login";
 
 
 const LoginPage = ({ setToken }) => {
@@ -10,13 +11,11 @@ const LoginPage = ({ setToken }) => {
   const [password, setPassword] = useState();
 
   const handleSubmit = async () => {
-    const user = await Login(email, password);
-    console.log(user);
-    setToken(user.token);
-    localStorage.setItem("id", user.id);
-    localStorage.setItem("name", user.name);
-    localStorage.setItem("surname", user.surname);
-    localStorage.setItem("email", user.email);
+    const utente = await Login(email, password);
+    console.log(utente);
+    setToken(utente.token);
+    localStorage.setItem("email", utente.email);
+    localStorage.setItem("password", utente.password);
     window.location.reload();
   };
 
@@ -24,14 +23,11 @@ const LoginPage = ({ setToken }) => {
     <Grid.Container
       style={{
         background: "#A351E280",
-        height: "96vh",
-        width: "74vw",
-        borderRadius: "20px",
+        height: "100vh",
+        width: "100vw",
 
-        marginTop: "2vh",
         marginBottom: "2vh",
-        marginLeft: "13vw",
-        marginRight: "13vw",
+        marginRight: "2vh",
       }}
       gap={0}
     >

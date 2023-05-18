@@ -4,7 +4,6 @@ import type { AppProps } from 'next/app';
 //import Products from "../pages/products";
 import Account from "../pages/account.jsx";
 //import Users from "../pages/users";
-import NutritionalValues from "../pages/nutritionalValues";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Grid } from "@nextui-org/react";
 import useToken from "../components/hooks/useToken";

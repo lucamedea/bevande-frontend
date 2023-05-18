@@ -6,6 +6,7 @@ import PasswordTextField from "../components/passwordTextField";
 import SubmitButton from "../components/submitButton.jsx";
 import PrivacyPolicy from "../components/modals/privacyPolicy";
 import TermsConditions from '../components/modals/termsConditions';
+import Navbar1 from "@/components/navbar/navbar.jsx";
 const Settings = () => {
   const [showChange, setShowChange] = useState(false);
   const [showTerms, setShowTerms] = useState(false);
@@ -17,6 +18,8 @@ const Settings = () => {
   const email = localStorage.getItem("email");
 */
   return (
+    <>
+    <Navbar1/>
     <Grid.Container style={{ height: "100vh", width: "100vw", background:"white"}}>
         <Row
         justify="center"
@@ -75,6 +78,7 @@ const Settings = () => {
 
           </Row>
     </Grid.Container>
+    </>
   );
 };
 

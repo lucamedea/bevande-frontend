@@ -34,7 +34,7 @@ function Table() {
             <td>{item.cognome}</td>
             <td>{item.email}</td>
             <td>{item.telefono}</td>
-            <td>{item.data_di_nascita}</td>
+            <td>{item.data_nascita}</td>
           </tr>
         ))}
       </tbody>
