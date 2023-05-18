@@ -1,7 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { Table } from "@nextui-org/react";
 
-function Table() {
+
+function Tabella() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -18,43 +20,48 @@ function Table() {
   }, []);
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Data e Ora</th>
-          <th>Totale</th>
-          <th>Nome Utente</th>
-          <th>Cognome</th>
-          <th>Email</th>
-          <th>Telefono</th>
-          <th>Ritiro</th>
-          <th>Prodotti</th>
-        </tr>
-      </thead>
-      <tbody>
+    <Table
+    aria-label="Example static collection table"
+    css={{
+      height: "auto",
+      minWidth: "100%",
+    }}
+    selectionMode="single"
+  >
+<Table.Header>
+        <Table.Column>Numero ordine</Table.Column>
+        <Table.Column>Data e ora</Table.Column>
+        <Table.Column>Totale</Table.Column>
+        <Table.Column>Nome cliente</Table.Column>
+        <Table.Column>Cognome cliente</Table.Column>
+        <Table.Column>Email</Table.Column>
+        <Table.Column>Telefono</Table.Column>
+        <Table.Column>Ritiro</Table.Column>
+        <Table.Column>Prodotti</Table.Column>
+      </Table.Header>
+      <Table.Body>
         {data.map((item) => (
-          <tr key={item.id}>
-            <td>{item.id}</td>
-            <td>{item.data_ora}</td>
-            <td>{item.totale}</td>
-            <td>{item.nome_user}</td>
-            <td>{item.cognome}</td>
-            <td>{item.email}</td>
-            <td>{item.telefono}</td>
-            <td>{item.ritiro}</td>
-            <td>
+          <Table.Row>
+            <Table.Cell>{item.id}</Table.Cell>
+            <Table.Cell>{item.data_ora}</Table.Cell>
+            <Table.Cell>€{item.totale}</Table.Cell>
+            <Table.Cell>{item.nome_user}</Table.Cell>
+            <Table.Cell>{item.cognome}</Table.Cell>
+            <Table.Cell>{item.email}</Table.Cell>
+            <Table.Cell>+{item.telefono}</Table.Cell>
+            <Table.Cell>{item.ritiro}</Table.Cell>
+            <Table.Cell>
               <ul>
                 {item.prodotti.map((prodotto, index) => (
                   <li key={index}>{prodotto.nome}</li>
                 ))}
               </ul>
-            </td>
-          </tr>
+            </Table.Cell>
+            </Table.Row>
         ))}
-      </tbody>
-    </table>
+      </Table.Body>
+    </Table>
   );
 }
 
-export default Table;
+export default Tabella;
