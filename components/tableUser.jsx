@@ -32,7 +32,6 @@ function Tabella() {
         <Table.Column>Nome</Table.Column>
         <Table.Column>Cognome</Table.Column>
         <Table.Column>Email</Table.Column>
-        <Table.Column>Password</Table.Column>
         <Table.Column>Telefono</Table.Column>
         <Table.Column>Data di nascita</Table.Column>
         <Table.Column>Attivo</Table.Column>
@@ -44,7 +43,6 @@ function Tabella() {
             <Table.Cell>{item.nome}</Table.Cell>
             <Table.Cell>{item.cognome}</Table.Cell>
             <Table.Cell>{item.email}</Table.Cell>
-            <Table.Cell>{item.password}</Table.Cell>
             <Table.Cell>+{item.telefono}</Table.Cell>
             <Table.Cell>{item.data_nascita}</Table.Cell>
             <Table.Cell>{item.active == 1 ? 'Attivo' : 'Eliminato'}</Table.Cell>
