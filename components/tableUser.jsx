@@ -39,15 +39,7 @@ function Tabella() {
       </Table.Header>
       <Table.Body>
         {data.map((item, index) => (
-<<<<<<< HEAD
-          <tr key={index}>
-            <td>{item.nome}</td>
-            <td>{item.cognome}</td>
-            <td>{item.email}</td>
-            <td>{item.telefono}</td>
-            <td>{item.data_nascita}</td>
-          </tr>
-=======
+
           <Table.Row>
             <Table.Cell>{item.nome}</Table.Cell>
             <Table.Cell>{item.cognome}</Table.Cell>
@@ -57,7 +49,6 @@ function Tabella() {
             <Table.Cell>{item.data_nascita}</Table.Cell>
             <Table.Cell>{item.active == 1 ? 'Attivo' : 'Eliminato'}</Table.Cell>
             </Table.Row>
->>>>>>> 590c4652886249a67a92490337ed74a830278710
         ))}
       </Table.Body>
     </Table>
