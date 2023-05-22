@@ -12,11 +12,11 @@ const LoginPage = ({ setToken }) => {
 
   const handleSubmit = async () => {
     const utente = await Login(email, password);
-    console.log(utente);
-    setToken(utente.token);
-    localStorage.setItem("email", utente.email);
-    localStorage.setItem("password", utente.password);
-    window.location.reload();
+      console.log(utente);
+      setToken(utente.token);
+      localStorage.setItem("email", utente.email);
+      localStorage.setItem("password", utente.password);
+      window.location.reload();
   };
 
   return (
@@ -31,7 +31,7 @@ const LoginPage = ({ setToken }) => {
       }}
       gap={0}
     >
-            <Grid
+     <Grid
         justify="center"
         xs={12}
         style={{

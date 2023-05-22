@@ -63,7 +63,8 @@ const Settings = () => {
         style={{
         alignContent:"center",
         }}>
-          <SubmitButton width="200px" text="Exit" />
+          <SubmitButton width="200px" text="Exit" onPress={()=>{ 
+                window.location.replace("/products")}} />
           <Spacer x="7"/>
           <SubmitButton width="200px" text="Change Password"/>
           </Row>

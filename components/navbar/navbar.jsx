@@ -4,6 +4,7 @@ import { Navbar, Button, Link, Text, useTheme,Spacer } from "@nextui-org/react";
 import { Layout } from './layout.jsx';
 import { parseCookies, setCookie, destroyCookie } from 'nookies';
 
+
 export default function Navbar1() {
   const variant="highlight-rounded";
   const activeColor="secondary";
@@ -73,7 +74,8 @@ export default function Navbar1() {
             <Button style={{ font:"revert-layer" }} auto flat as={Link} color={activeColor}   
               onPress={()=>{ 
                 removeToken()
-              window.location.reload();}}>
+                window.location.replace("./login");
+                }}>
               Logout
             </Button>
           </Navbar.Item>

@@ -14,9 +14,8 @@ export default function AddNewProduct({ width, height, show, close }) {
   const [category, setCategory] = useState(new Set(["1"]));
   const [kcal, setKcal] = useState();
   const [fats, setFats] = useState();
-  const [carbo, setCarbo] = useState();
   const [protein, setProtein] = useState();
-  const [fiber, setFiber] = useState();
+  const [sugar, setSugar] = useState();
 
   const handleText = (event) => {
     setQuantity(event.target.value);
@@ -84,33 +83,28 @@ export default function AddNewProduct({ width, height, show, close }) {
           />
          <Spacer x="4.5" />
         <TextField
-            label="Carboidrati"
+            label="Zuccheri"
             width="300px"
-            handleChange={(e) => setCarbo(e.target.value)}
+            handleChange={(e) => setSugar(e.target.value)}
           />  
         </Row>
         <Spacer y="0.3" />
         <Row justify="center" xs={12}>
           <TextField
-            label="Fibre"
-            width="300px"
-            handleChange={(e) => setFiber(e.target.value)}
-          />
-          <Spacer x="4.5" />
-          <TextField
             label="Kcal"
             width="300px"
             handleChange={(e) => setKcal(e.target.value)}
           />
-          </Row>
-        <Spacer y="0.3" />
-        <Row justify="center" xs={12}>
-          <TextField
+           <Spacer x="4.5" />
+
+           <TextField
             label="Descrizione"
             width="700px"
             handleChange={(e) => setDescription(e.target.value)}
           />
-        </Row>
+
+          </Row>
+    
       </Modal.Body>
       <Modal.Footer
         style={{
@@ -134,9 +128,8 @@ export default function AddNewProduct({ width, height, show, close }) {
               let nutritial_values = [
                 kcal,
                 fats,
-                carbo,
                 protein,
-                fiber,
+                sugar,
               ];
               addProduct(
                 name,

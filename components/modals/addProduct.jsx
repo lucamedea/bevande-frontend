@@ -14,9 +14,8 @@ export default function AddNewProduct({ width, height, show, close }) {
   const [category, setCategory] = useState(new Set(["1"]));
   const [kcal, setKcal] = useState();
   const [fats, setFats] = useState();
-  const [carbo, setCarbo] = useState();
+  const [sugar, setSugar] = useState();
   const [protein, setProtein] = useState();
-  const [fiber, setFiber] = useState();
 
   const handleText = (event) => {
     setQuantity(event.target.value);
@@ -83,18 +82,18 @@ export default function AddNewProduct({ width, height, show, close }) {
             handleChange={(e) => setFats(e.target.value)}
           />
          <Spacer x="4.5" />
-        <TextField
-            label="Carboidrati"
-            width="300px"
-            handleChange={(e) => setCarbo(e.target.value)}
-          />  
+         <TextField
+            label="Descrizione"
+            width="700px"
+            handleChange={(e) => setDescription(e.target.value)}
+          />
         </Row>
         <Spacer y="0.3" />
         <Row justify="center" xs={12}>
           <TextField
-            label="Fibre"
+            label="Zuccheri"
             width="300px"
-            handleChange={(e) => setFiber(e.target.value)}
+            handleChange={(e) => setSugar(e.target.value)}
           />
           <Spacer x="4.5" />
           <TextField
@@ -103,14 +102,7 @@ export default function AddNewProduct({ width, height, show, close }) {
             handleChange={(e) => setKcal(e.target.value)}
           />
           </Row>
-        <Spacer y="0.3" />
-        <Row justify="center" xs={12}>
-          <TextField
-            label="Descrizione"
-            width="700px"
-            handleChange={(e) => setDescription(e.target.value)}
-          />
-        </Row>
+
       </Modal.Body>
       <Modal.Footer
         style={{
@@ -131,12 +123,11 @@ export default function AddNewProduct({ width, height, show, close }) {
             text="Aggiungi"
             textsize="20"
             onPress={() => {
-              let nutritial_values = [
+              let nutritional_values = [
                 kcal,
                 fats,
-                carbo,
                 protein,
-                fiber,
+                sugar,
               ];
               addProduct(
                 name,

@@ -14,7 +14,16 @@ const Orders = () => {
     xs={12}
     style={{
     alignContent:"center",
-      marginTop: "3vh",
+    marginTop:"3vw" }}>  
+
+<Text style={{fontFamily:"revert"}} size="$3xl"> I TUOI ORDINI</Text>
+  </Row>
+    <Row
+    justify="center"
+    xs={12}
+    style={{
+    alignContent:"center",
+    marginBottom:"28vw"
     }}
   >  
 <TableOrder/>
