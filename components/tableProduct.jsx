@@ -39,6 +39,7 @@ function Tabella() {
         <Table.Column>Proteine</Table.Column>
         <Table.Column>Zuccheri</Table.Column>
         <Table.Column>Attivo</Table.Column>
+        <Table.Column>Modifica</Table.Column>
       </Table.Header>
       <Table.Body>
         {data.map((item, index) => (
@@ -53,6 +54,7 @@ function Tabella() {
             <Table.Cell>{item.Proteins}</Table.Cell>
             <Table.Cell>{item.Sugars}</Table.Cell>
             <Table.Cell>{item.active == 1 ? 'Attivo' : 'Disattivo'}</Table.Cell>
+            <Table.Cell><a href={`/modifica-prodotto/${item.id}`}>Modifica</a></Table.Cell>
             </Table.Row>
         ))}
       </Table.Body>
