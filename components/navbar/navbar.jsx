@@ -56,8 +56,8 @@ export default function Navbar1() {
     <Layout>
       <Navbar style={{backgroundColor:"#EBCEF5"}} sx={{outerWidth:"100px"}} isBordered={isDark} variant="sticky">
         <Navbar.Brand>
-          <Text style={{ fontWeight:"lighter"}} b hideIn="xs">
-            Bevanderia
+          <Text style={{ fontWeight:"lighter", fontFamily:"revert-layer", fontSize:"xl"}} b hideIn="xs">
+            BEVANDERIA
           </Text>
         </Navbar.Brand>
         <Navbar.Content activeColor={activeColor} hideIn="xs" variant={variant}>

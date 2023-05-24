@@ -4,6 +4,7 @@ import TextField from "../textField.jsx";
 import SelectActive from "../selectActive";
 import SelectCategory from "../selectCategory";
 import Button from "../submitButton.jsx";
+import addProduct from "../../pages/api/addProduct";
 
 export default function AddNewProduct({ width, height, show, close }) {
   const [name, setName] = useState();
@@ -20,19 +21,31 @@ export default function AddNewProduct({ width, height, show, close }) {
   const handleText = (event) => {
     setQuantity(event.target.value);
   };
+  const [visible, setVisible] = React.useState(false);
+  const handler = () => setVisible(true);
+
+  const handleChange = (event) => {
+    console.log(event.target.value);}
+
+  const closeHandler = () => {
+    setVisible(false);
+    console.log("closed");}
 
   return (
+    <div>
+<Button width="200px" text="Add Product" onPress={handler}/>
     <Modal
       style={{ height: height }}
       width={width}
       closeButton
       aria-labelledby="modal-title"
-      open={show}
-      onClose={close}
+      open={visible}
+      onClose={closeHandler}
     >
       <Text size={24} weight="bold">
         Aggiungi nuovo prodotto
       </Text>
+      <Spacer y="3"/>
       <Modal.Body>
         <Row justify="center" xs={12}>
           <TextField
@@ -47,25 +60,12 @@ export default function AddNewProduct({ width, height, show, close }) {
             handleChange={(e) => setPrice(e.target.value)}
           />
         </Row>
-        <Row justify="center" xs={12} display="flex" align="top">
-          <SelectCategory
-            label="Categoria"
-            width="300px"
-            handleChange={(e) => setCategory(e.target.value)}
-          />
-          <Spacer x="4.5" />
-          <TextField
+        <Spacer y="0.3" />
+        <Row justify="center" xs={12}>
+        <TextField
             label="Quantita"
             width="300px"
             handleChange={(e) => setQuantity(e.target.value)}
-          />
-        </Row>
-        <Spacer y="0.3" />
-        <Row justify="center" xs={12}>
-        <SelectActive
-            label="Attivo"
-            width="300px"
-            handleChange={(e) => setActive(e.target.value)}
           />
           <Spacer x="4.5" />
           <TextField
@@ -84,7 +84,7 @@ export default function AddNewProduct({ width, height, show, close }) {
          <Spacer x="4.5" />
          <TextField
             label="Descrizione"
-            width="700px"
+            width="300px"
             handleChange={(e) => setDescription(e.target.value)}
           />
         </Row>
@@ -102,6 +102,20 @@ export default function AddNewProduct({ width, height, show, close }) {
             handleChange={(e) => setKcal(e.target.value)}
           />
           </Row>
+          <Spacer y="1"/>
+          <Row justify="center" xs={12} display="flex" align="top">
+          <SelectCategory
+            label="Categoria"
+            width="350px"
+            handleChange={(e) => setCategory(e.target.value)}
+          />
+          <Spacer x="4.5" />
+          <SelectActive
+            label="Attivo"
+            width="350px"
+            handleChange={(e) => setActive(e.target.value)}
+          />
+        </Row>
 
       </Modal.Body>
       <Modal.Footer
@@ -143,5 +157,6 @@ export default function AddNewProduct({ width, height, show, close }) {
         </div>
       </Modal.Footer>
     </Modal>
+    </div>
   );
 }
