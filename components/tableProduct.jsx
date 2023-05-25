@@ -42,7 +42,7 @@ function Tabella() {
         <Table.Column>Modifica</Table.Column>
       </Table.Header>
       <Table.Body>
-        {data.map((item, index) => (
+        {data.map((item) => (
           <Table.Row>
             <Table.Cell>{item.nome}</Table.Cell>
             <Table.Cell>{item.descrizione}</Table.Cell>
