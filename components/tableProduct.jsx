@@ -54,7 +54,7 @@ function Tabella() {
             <Table.Cell>{item.Proteins}</Table.Cell>
             <Table.Cell>{item.Sugars}</Table.Cell>
             <Table.Cell>{item.active == 1 ? 'Attivo' : 'Disattivo'}</Table.Cell>
-            <Table.Cell><Button onClick={() => MoficaProdotto(item)}>Modifica</Button></Table.Cell>
+            <Table.Cell><Button size="xs" onClick={() => MoficaProdotto(item)}>Modifica</Button></Table.Cell>
             </Table.Row>
         ))}
       </Table.Body>
