@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Table } from "@nextui-org/react";
-
+import { Button } from "@nextui-org/react";
 
 function Tabella() {
   const [data, setData] = useState([]);
@@ -54,7 +54,7 @@ function Tabella() {
             <Table.Cell>{item.Proteins}</Table.Cell>
             <Table.Cell>{item.Sugars}</Table.Cell>
             <Table.Cell>{item.active == 1 ? 'Attivo' : 'Disattivo'}</Table.Cell>
-            <Table.Cell><a href={`/modifica-prodotto/${item.id}`}>Modifica</a></Table.Cell>
+            <Table.Cell><Button onClick={() => MoficaProdotto(item)}>Modifica</Button></Table.Cell>
             </Table.Row>
         ))}
       </Table.Body>
