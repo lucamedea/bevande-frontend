@@ -11,12 +11,7 @@ const Settings = () => {
   const [showChange, setShowChange] = useState(false);
   const [showTerms, setShowTerms] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
-/*
-  const nameSurname = `${localStorage.getItem("name")} ${localStorage.getItem(
-    "surname"
-  )}`;
-  const email = localStorage.getItem("email");
-*/
+  
   return (
     <>
     <Navbar1/>

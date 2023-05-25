@@ -25,13 +25,13 @@ export default function SelectCategory({width, height,boolActive}) {
         selectedKeys={selected}
         onSelectionChange={setSelected}
       >
-        <Dropdown.Item key="Bibite Frizzanti">Bibite Frizzanti</Dropdown.Item>
-        <Dropdown.Item key="Acqua">Acqua</Dropdown.Item>
-        <Dropdown.Item key="Bibite Lisce">Bibite Liscie</Dropdown.Item>
-        <Dropdown.Item key="Energy Drink">Energy Drink</Dropdown.Item>
-        <Dropdown.Item key="Succhi di Frutta">Succhi di Frutta</Dropdown.Item>
-        <Dropdown.Item key="Integratori">Integratori</Dropdown.Item>
-        <Dropdown.Item key="Sciroppi">Sciroppi</Dropdown.Item>
+        <Dropdown.Item key="1">Bibite Frizzanti</Dropdown.Item>
+        <Dropdown.Item key="2">Acqua</Dropdown.Item>
+        <Dropdown.Item key="3">Bibite Liscie</Dropdown.Item>
+        <Dropdown.Item key="4">Energy Drink</Dropdown.Item>
+        <Dropdown.Item key="5">Succhi di Frutta</Dropdown.Item>
+        <Dropdown.Item key="6">Integratori</Dropdown.Item>
+        <Dropdown.Item key="7">Sciroppi</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );

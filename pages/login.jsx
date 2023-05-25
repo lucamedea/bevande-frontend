@@ -13,6 +13,7 @@ const LoginPage = ({ setToken }) => {
   const handleSubmit = async () => {
     const utente = await Login(email, password);
       console.log(utente);
+    const userId = utente.id;
       setToken(utente.token);
       localStorage.setItem("email", utente.email);
       localStorage.setItem("password", utente.password);

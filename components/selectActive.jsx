@@ -25,8 +25,8 @@ export default function SelectActive({width, height,boolActive}) {
         selectedKeys={selected}
         onSelectionChange={setSelected}
       >
-        <Dropdown.Item key="Attivo">Attivo</Dropdown.Item>
-        <Dropdown.Item key="Non Attivo">Non Attivo</Dropdown.Item>
+        <Dropdown.Item key="1">Attivo</Dropdown.Item>
+        <Dropdown.Item key="0">Non Attivo</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );
