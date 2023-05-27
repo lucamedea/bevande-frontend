@@ -5,7 +5,7 @@ import TextField from "../textField.jsx";
 import SelectActive from "../selectActive";
 import SelectCategory from "../selectCategory";
 import Button from "../submitButton.jsx";
-import AddProduct from "../../pages/api/addProduct";
+import { AddProduct } from "../../pages/api/addProduct.js";
 
 export default function AddNewProduct({ width, height, show, close }) {
   const [nome, setNome] = useState();
