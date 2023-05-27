@@ -7,12 +7,25 @@ import SubmitButton from "../components/submitButton.jsx";
 import PrivacyPolicy from "../components/modals/privacyPolicy";
 import TermsConditions from '../components/modals/termsConditions';
 import Navbar1 from "@/components/navbar/navbar.jsx";
+import { useQuery } from "react-query";
+import { QueryClientProvider, QueryClient } from "react-query";
+import { getUser } from "./api/getUser.js";
+
 const Settings = () => {
   const [showChange, setShowChange] = useState(false);
   const [showTerms, setShowTerms] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
+  const clientQuery = new QueryClient();
   
+  const accountQuery = useQuery({
+    queryKey: ["account"],
+    queryFn:()=>{return(getUser());} ,
+    staleTime: 3000,
+    refetchInterval: 1000,
+  });
+
   return (
+    <QueryClientProvider client={clientQuery}>
     <>
     <Navbar1/>
     <Grid.Container style={{ height: "100vh", width: "100vw", background:"white"}}>
@@ -59,7 +72,7 @@ const Settings = () => {
         alignContent:"center",
         }}>
           <SubmitButton width="200px" text="Exit" onPress={()=>{ 
-                window.location.replace("/products")}} />
+            window.location.replace("/products")}} />
           <Spacer x="7"/>
           <SubmitButton width="200px" text="Change Password"/>
           </Row>
@@ -75,6 +88,7 @@ const Settings = () => {
           </Row>
     </Grid.Container>
     </>
+    </QueryClientProvider>
   );
 };
 

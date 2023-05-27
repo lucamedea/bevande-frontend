@@ -1,66 +1,167 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { Table } from "@nextui-org/react";
-import { Button } from "@nextui-org/react";
-import ModificaProdotto from '../components/modals/addProduct';
+import React, { useState } from "react";
+import { Modal, Text, Row, Spacer } from "@nextui-org/react";
+import TextField from "../textField.jsx";
+import Button from "../submitButton.jsx";
+import SelectActive from "../selectActive";
+import SelectCategory from "../selectCategory";
+import modifyProduct from "../../pages/api/modifyProduct";
+import { useQuery } from "react-query";
+import {getProduct} from "../../pages/api/getProduct";
 
-function Tabella() {
-  const [data, setData] = useState([]);
+export default function ModifyProduct({ width, height, show, close, productId}) {
+  const [nome, setNome] = useState();
+  const [active, setActive] = useState();
+  const [descrizione, setDescrizione] = useState();
+  const [prezzo, setPrezzo] = useState();
+  const [quantita, setQuantita] = useState();
+  const [categoria, setCategoria] = useState(new Set(["1"]));
+  const [Kcal, setKcal] = useState();
+  const [Fats, setFats] = useState();
+  const [Sugars, setSugars] = useState();
+  const [Proteins, setProteins] = useState();
 
-  useEffect(() => {
-    // Effettua la richiesta API per recuperare i dati dal database
-    fetch("http://bevanderia.altervista.org/bevandeapi/API/prodotto/getArchiveProducts.php")
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        setData(data);
-      })
-      .catch(error => {
-        console.error('Errore nella richiesta:', error);
-      });
-  }, []);
-
-  return (
-    <Table
-    aria-label="Example static collection table"
-    css={{
-      height: "auto",
-      minWidth: "100%",
-    }}
-    selectionMode="single"
-  >
-<Table.Header>
-        <Table.Column>Nome</Table.Column>
-        <Table.Column>Descrizione</Table.Column>
-        <Table.Column>Prezzo</Table.Column>
-        <Table.Column>Categoria</Table.Column>
-        <Table.Column>Quantita</Table.Column>
-        <Table.Column>Grassi</Table.Column>
-        <Table.Column>Kcal</Table.Column>
-        <Table.Column>Proteine</Table.Column>
-        <Table.Column>Zuccheri</Table.Column>
-        <Table.Column>Attivo</Table.Column>
-        <Table.Column>Modifica</Table.Column>
-      </Table.Header>
-      <Table.Body>
-        {data.map((item) => (
-          <Table.Row>
-            <Table.Cell>{item.nome}</Table.Cell>
-            <Table.Cell>{item.descrizione}</Table.Cell>
-            <Table.Cell>€{item.prezzo}</Table.Cell>
-            <Table.Cell>{item.categoria_nome}</Table.Cell>
-            <Table.Cell>{item.quantita}</Table.Cell>
-            <Table.Cell>{item.Fats}</Table.Cell>
-            <Table.Cell>{item.Kcal}</Table.Cell>
-            <Table.Cell>{item.Proteins}</Table.Cell>
-            <Table.Cell>{item.Sugars}</Table.Cell>
-            <Table.Cell>{item.active == 1 ? 'Attivo' : 'Disattivo'}</Table.Cell>
-            <Table.Cell><Button size="xs" onClick={() => ModificaProdotto(item)}>Modifica</Button></Table.Cell>
-            </Table.Row>
-        ))}
-      </Table.Body>
-    </Table>
+  const handleText = (event) => {
+    setQuantity(event.target.value);
+  };
+  const [selectedCategory, setSelectedCategory] = useState(
+    new Set(["Category"])
   );
-}
 
-export default Tabella;
+  const product = useQuery({
+    queryKey: ["product", productId],
+    queryFn: () => getProduct(productId),
+  });
+  return (
+    <Modal
+      style={{ height: height }}
+      width={width}
+      closeButton
+      aria-labelledby="modal-title"
+      open={show}
+      onClose={close}
+    >
+      <Text size={24} weight="bold">
+        Modifica prodotto
+      </Text>
+      <Modal.Body>
+        <Row justify="center" xs={12}>
+          <TextField
+            label="Nuovo Nome"
+            width="300px"
+            initialValue={product.data["nome"]}
+            handleChange={(e) => setNome(e.target.value)}
+          />
+          <Spacer x="4.5" />
+          <TextField
+            label="Prezzo(€)"
+            width="300px"
+            initialValue={product.data["prezzo"]}
+            handleChange={(e) => setPrezzo(e.target.value)}
+          />
+        </Row>
+        <Row justify="center" xs={12} display="flex" align="top">
+          <SelectCategory
+            label="Categoria"
+            width="300px"
+            selected={selectedCategory}
+            setSelected={setSelectedCategory}
+            defaultValue={product.data["categoria"]}
+            handleChange={(e) => setCategoria(e.target.value)}
+          />
+          <Spacer x="4.5" />
+          <TextField
+            label="Quantita"
+            width="300px"
+            initialValue={product.data["quantita"]}
+            handleChange={(e) => setQuantita(e.target.value)}
+          />
+        </Row>
+        <Spacer y="0.3" />
+        <Row justify="center" xs={12}>
+        <SelectActive
+            label="Attivo"
+            width="300px"
+            boolActive={product.data["active"]}
+            handleChange={(e) => setActive(e.target.value)}
+          />
+          <Spacer x="4.5" />
+          <TextField
+            label="Proteine"
+            width="300px"
+            initialValue={product.data["Proteins"]}
+            handleChange={(e) => setProteins(e.target.value)}
+          />
+          </Row>
+          <Spacer y="0.3" />
+        <Row justify="center" xs={12}>
+        <TextField
+            label="Grassi"
+            width="300px"
+            initialValue={product.data["Fats"]}
+            handleChange={(e) => setFats(e.target.value)}
+          />
+         <Spacer x="4.5" />
+        <TextField
+            label="Zuccheri"
+            width="300px"
+            initialValue={product.data["Sugars"]}
+            handleChange={(e) => setSugars(e.target.value)}
+          />  
+        </Row>
+        <Spacer y="0.3" />
+        <Row justify="center" xs={12}>
+          <TextField
+            label="Kcal"
+            width="300px"
+            initialValue={product.data["Kcal"]}
+            handleChange={(e) => setKcal(e.target.value)}
+          />
+           <Spacer x="4.5" />
+
+           <TextField
+            label="Descrizione"
+            width="700px"
+            initialValue={product.data["descrizione"]}
+            handleChange={(e) => setDescrizione(e.target.value)}
+          />
+
+          </Row>
+    
+      </Modal.Body>
+      <Modal.Footer
+        style={{
+          justifyContent: "center",
+          display: "flex",
+          paddingBottom: "3vw",
+        }}>
+
+        <div
+          style={{
+            justifyContent: "center",
+            display: "flex" }}>
+
+          <Button
+            height="60px"
+            width="120px"
+            text="Modifica"
+            textsize="20"
+            onPress={() => {
+              modifyProduct(
+                nome,
+                prezzo,
+                descrizione,
+                quantita,
+                categoria["currentKey"],
+                active,
+                Kcal,
+                Fats,
+                Proteins,
+                Sugars
+              );
+              closeHandler();
+            }} />
+        </div>
+      </Modal.Footer>
+    </Modal>
+  );
+  }

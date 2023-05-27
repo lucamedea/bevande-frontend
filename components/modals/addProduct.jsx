@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createContext } from 'react';
 import { Modal, Text, Row, Spacer } from "@nextui-org/react";
 import TextField from "../textField.jsx";
 import SelectActive from "../selectActive";
@@ -7,16 +8,16 @@ import Button from "../submitButton.jsx";
 import addProduct from "../../pages/api/addProduct";
 
 export default function AddNewProduct({ width, height, show, close }) {
-  const [name, setName] = useState();
+  const [nome, setNome] = useState();
   const [active, setActive] = useState();
-  const [description, setDescription] = useState();
-  const [price, setPrice] = useState();
-  const [quantity, setQuantity] = useState();
-  const [category, setCategory] = useState(new Set(["1"]));
-  const [kcal, setKcal] = useState();
-  const [fats, setFats] = useState();
-  const [sugar, setSugar] = useState();
-  const [protein, setProtein] = useState();
+  const [descrizione, setDescrizione] = useState();
+  const [prezzo, setPrezzo] = useState();
+  const [quantita, setQuantita] = useState();
+  const [categoria, setCategoria] = useState(new Set(["1"]));
+  const [Kcal, setKcal] = useState();
+  const [Fats, setFats] = useState();
+  const [Sugars, setSugars] = useState();
+  const [Proteins, setProteins] = useState();
 
   const handleText = (event) => {
     setQuantity(event.target.value);
@@ -51,13 +52,13 @@ export default function AddNewProduct({ width, height, show, close }) {
           <TextField
             label="Nome"
             width="300px"
-            handleChange={(e) => setName(e.target.value)}
+            handleChange={(e) => setNome(e.target.value)}
           />
           <Spacer x="4.5" />
           <TextField
             label="Prezzo(€)"
             width="300px"
-            handleChange={(e) => setPrice(e.target.value)}
+            handleChange={(e) => setPrezzo(e.target.value)}
           />
         </Row>
         <Spacer y="0.3" />
@@ -65,13 +66,13 @@ export default function AddNewProduct({ width, height, show, close }) {
         <TextField
             label="Quantita"
             width="300px"
-            handleChange={(e) => setQuantity(e.target.value)}
+            handleChange={(e) => setQuantita(e.target.value)}
           />
           <Spacer x="4.5" />
           <TextField
             label="Proteine"
             width="300px"
-            handleChange={(e) => setProtein(e.target.value)}
+            handleChange={(e) => setProteins(e.target.value)}
           />
           </Row>
           <Spacer y="0.3" />
@@ -85,7 +86,7 @@ export default function AddNewProduct({ width, height, show, close }) {
          <TextField
             label="Descrizione"
             width="300px"
-            handleChange={(e) => setDescription(e.target.value)}
+            handleChange={(e) => setDescrizione(e.target.value)}
           />
         </Row>
         <Spacer y="0.3" />
@@ -93,7 +94,7 @@ export default function AddNewProduct({ width, height, show, close }) {
           <TextField
             label="Zuccheri"
             width="300px"
-            handleChange={(e) => setSugar(e.target.value)}
+            handleChange={(e) => setSugars(e.target.value)}
           />
           <Spacer x="4.5" />
           <TextField
@@ -107,7 +108,7 @@ export default function AddNewProduct({ width, height, show, close }) {
           <SelectCategory
             label="Categoria"
             width="350px"
-            handleChange={(e) => setCategory(e.target.value)}
+            handleChange={(e) => setCategoria(e.target.value)}
           />
           <Spacer x="4.5" />
           <SelectActive
@@ -137,21 +138,19 @@ export default function AddNewProduct({ width, height, show, close }) {
             text="Aggiungi"
             textsize="20"
             onPress={() => {
-              let nutritional_values = [
-                kcal,
-                fats,
-                protein,
-                sugar,
-              ];
               addProduct(
-                name,
-                price,
-                description,
-                quantity,
-                category["currentKey"],
+                nome,
+                prezzo,
+                descrizione,
+                quantita,
+                categoria["currentKey"],
                 active,
+                Kcal,
+                Fats,
+                Proteins,
+                Sugars
               );
-              close();
+              closeHandler();
             }}
           />
         </div>

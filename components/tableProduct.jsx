@@ -2,9 +2,13 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Table } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
+import ModifyProduct from "./modals/modifyProduct";
 
 function Tabella() {
   const [data, setData] = useState([]);
+  const [showModify, setShowModify] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState();
+
 
   useEffect(() => {
     // Effettua la richiesta API per recuperare i dati dal database
@@ -20,8 +24,10 @@ function Tabella() {
   }, []);
 
   return (
+    <>
     <Table
     aria-label="Example static collection table"
+    onSelectionChange={(e) => setSelectedIndex(e.currentKey)}
     css={{
       height: "auto",
       minWidth: "100%",
@@ -54,11 +60,12 @@ function Tabella() {
             <Table.Cell>{item.Proteins}</Table.Cell>
             <Table.Cell>{item.Sugars}</Table.Cell>
             <Table.Cell>{item.active == 1 ? 'Attivo' : 'Disattivo'}</Table.Cell>
-            <Table.Cell><Button size="xs" onClick={() => MoficaProdotto(item)}>Modifica</Button></Table.Cell>
+            <Table.Cell><Button size="xs"  onPress={() =>MoficaProdotto(item)}>Modifica</Button></Table.Cell>
             </Table.Row>
         ))}
       </Table.Body>
     </Table>
+    </>
   );
 }
 

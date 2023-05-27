@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
 
  const { token, setToken } = useToken();
-
+ 
   if (!token) {
   return <Login setToken={setToken} />;
  }
