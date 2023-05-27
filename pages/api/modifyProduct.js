@@ -1,23 +1,27 @@
 import axios from "axios";
 
-export function ModifyProduct(id,nome,descrizione,prezzo,id_categoria,quantita,active) {
-    return axios
-      .post(
-        "http://bevanderia.altervista.org/bevandeapi/API/prodotto/modifyProduct.php",
-        {
-            id:id,
-          nome:nome,
-          descrizione:descrizione,
-          prezzo:prezzo,
-          id_categoria:id_categoria,
-          quantita:quantita,
-          active:active,
+export async function ModifyProduct(id,nome,descrizione,prezzo,categoria,quantita,active,Kcal,Fats,Proteins,Sugars) {
+    const res = await axios
+    .post(
+      "http://bevanderia.altervista.org/bevandeapi/API/prodotto/modifyProduct.php",
+      {
+        id: id,
+        nome: nome,
+        descrizione: descrizione,
+        prezzo: prezzo,
+        categoria: categoria,
+        quantita: quantita,
+        active: active,
+        Kcal: Kcal,
+        Fats: Fats,
+        Proteins: Proteins,
+        Sugars: Sugars
+      },
+      {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
         },
-        {
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-          },
-        }
-      )
-      .then((res) => res.data);
+      }
+    );
+  return res.data;
   }

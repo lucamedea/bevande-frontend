@@ -24,13 +24,15 @@ export default function ModifyProduct({ width, height, show, close, productId}) 
     setQuantity(event.target.value);
   };
   const [selectedCategory, setSelectedCategory] = useState(
-    new Set(["Category"])
+    new Set(["categoria"])
   );
 
   const product = useQuery({
     queryKey: ["product", productId],
     queryFn: () => getProduct(productId),
   });
+
+  const [id, setId] = useState(productId);
   return (
     <Modal
       style={{ height: height }}
@@ -147,6 +149,7 @@ export default function ModifyProduct({ width, height, show, close, productId}) 
             textsize="20"
             onPress={() => {
               modifyProduct(
+                id,
                 nome,
                 prezzo,
                 descrizione,

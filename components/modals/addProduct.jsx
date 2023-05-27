@@ -5,7 +5,7 @@ import TextField from "../textField.jsx";
 import SelectActive from "../selectActive";
 import SelectCategory from "../selectCategory";
 import Button from "../submitButton.jsx";
-import addProduct from "../../pages/api/addProduct";
+import AddProduct from "../../pages/api/addProduct";
 
 export default function AddNewProduct({ width, height, show, close }) {
   const [nome, setNome] = useState();
@@ -27,6 +27,11 @@ export default function AddNewProduct({ width, height, show, close }) {
 
   const handleChange = (event) => {
     console.log(event.target.value);}
+
+    const [selectedCategory, setSelectedCategory] = useState(
+      new Set(["categoria"])
+    );
+  
 
   const closeHandler = () => {
     setVisible(false);
@@ -108,6 +113,8 @@ export default function AddNewProduct({ width, height, show, close }) {
           <SelectCategory
             label="Categoria"
             width="350px"
+           selected={selectedCategory}
+            setSelected={setSelectedCategory}
             handleChange={(e) => setCategoria(e.target.value)}
           />
           <Spacer x="4.5" />
@@ -138,7 +145,7 @@ export default function AddNewProduct({ width, height, show, close }) {
             text="Aggiungi"
             textsize="20"
             onPress={() => {
-              addProduct(
+              AddProduct(
                 nome,
                 prezzo,
                 descrizione,

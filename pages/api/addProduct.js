@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export async function AddProduct(nome,descrizione,prezzo,categoria,quantita,active,fats,kcal,proteins,sugars) {
+export async function AddProduct(nome,descrizione,prezzo,categoria,quantita,active,Fats,Kcal,Proteins,Sugars) {
     const res = await axios
     .post(
       "http://bevanderia.altervista.org/bevandeapi/API/prodotto/addProduct.php",
@@ -11,10 +11,10 @@ export async function AddProduct(nome,descrizione,prezzo,categoria,quantita,acti
         categoria: categoria,
         quantita: quantita,
         active: active,
-        fats: fats,
-        kcal: kcal,
-        proteins: proteins,
-        sugars: sugars
+        Fats: Fats,
+        Kcal: Kcal,
+        Proteins: Proteins,
+        Sugars: Sugars
       },
       {
         headers: {
