@@ -9,7 +9,7 @@ import { AddProduct } from "../../pages/api/addProduct.js";
 
 export default function AddNewProduct({ width, height, show, close }) {
   const [nome, setNome] = useState();
-  const [active, setActive] = useState();
+
   const [descrizione, setDescrizione] = useState();
   const [prezzo, setPrezzo] = useState();
   const [quantita, setQuantita] = useState();
@@ -30,6 +30,10 @@ export default function AddNewProduct({ width, height, show, close }) {
 
     const [selectedCategory, setSelectedCategory] = useState(
       new Set(["categoria"])
+    );
+    const [active, setActive] = useState(
+      new Set(["active"])
+      
     );
   
 
@@ -111,18 +115,20 @@ export default function AddNewProduct({ width, height, show, close }) {
           <Spacer y="1"/>
           <Row justify="center" xs={12} display="flex" align="top">
           <SelectCategory
-            label="Categoria"
-            width="350px"
-           selected={selectedCategory}
-            setSelected={setSelectedCategory}
-            handleChange={(e) => setCategoria(e.target.value)}
-          />
-          <Spacer x="4.5" />
-          <SelectActive
-            label="Attivo"
-            width="350px"
-            handleChange={(e) => setActive(e.target.value)}
-          />
+  label="Categoria"
+  width="350px"
+  selected={categoria}
+  setSelected={setCategoria}
+  handleChange={(e) => setCategoria(e.target.value)}
+/>
+<Spacer x="4.5" />
+<SelectActive
+  label="Attivo"
+  width="350px"
+  selected={active}
+  setSelected={setActive}
+  handleChange={(e) => setActive(e.target.value)}
+              />
         </Row>
 
       </Modal.Body>
@@ -145,6 +151,7 @@ export default function AddNewProduct({ width, height, show, close }) {
             text="Aggiungi"
             textsize="20"
             onPress={() => {
+              console.log(active)
               AddProduct(
                 nome,
                 prezzo,
