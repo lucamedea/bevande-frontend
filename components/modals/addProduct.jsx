@@ -19,9 +19,6 @@ export default function AddNewProduct({ width, height, show, close }) {
   const [Sugars, setSugars] = useState();
   const [Proteins, setProteins] = useState();
 
-  const handleText = (event) => {
-    setQuantity(event.target.value);
-  };
   const [visible, setVisible] = React.useState(false);
   const handler = () => setVisible(true);
 
@@ -29,10 +26,10 @@ export default function AddNewProduct({ width, height, show, close }) {
     console.log(event.target.value);}
 
     const [selectedCategory, setSelectedCategory] = useState(
-      new Set(["categoria"])
+      new Set(["1"])
     );
     const [selectedActive, setSelectedActive] = useState(
-      new Set(["active"])
+      new Set(["1"])
       
     );
   
@@ -43,7 +40,7 @@ export default function AddNewProduct({ width, height, show, close }) {
 
   return (
     <div>
-<Button width="200px" text="Add Product" onPress={handler}/>
+<Button width="200px" text="Aggiungi Prodotto" onPress={handler}/>
     <Modal
       style={{ height: height }}
       width={width}
@@ -151,7 +148,6 @@ export default function AddNewProduct({ width, height, show, close }) {
             text="Aggiungi"
             textsize="20"
             onPress={() => {
-              console.log(active)
               AddProduct(
                 nome,
                 prezzo,

@@ -1,5 +1,5 @@
 import axios from "axios";
-
+/*
 export async function ModifyProduct(id,nome,descrizione,prezzo,categoria,quantita,active,Kcal,Fats,Proteins,Sugars) {
     const res = await axios
     .post(
@@ -25,3 +25,4 @@ export async function ModifyProduct(id,nome,descrizione,prezzo,categoria,quantit
     );
   return res.data;
   }
+  */

@@ -1,6 +1,6 @@
 import {React} from "react";
 import { useState } from "react";
-import { Navbar, Button, Link, Text, useTheme,Spacer } from "@nextui-org/react";
+import { Navbar, Button, Link, Text, useTheme,Spacer} from "@nextui-org/react";
 import { Layout } from './layout.jsx';
 import { parseCookies, setCookie, destroyCookie } from 'nookies';
 
@@ -56,9 +56,9 @@ export default function Navbar1() {
     <Layout>
       <Navbar style={{backgroundColor:"#EBCEF5"}} sx={{outerWidth:"100px"}} isBordered={isDark} variant="sticky">
         <Navbar.Brand>
-          <Text style={{ fontWeight:"lighter", fontFamily:"revert-layer", fontSize:"xl"}} b hideIn="xs">
-            BEVANDERIA
-          </Text>
+          <Link style={{ fontWeight:"lighter", fontFamily:"revert-layer", fontSize:"xl"}} b hideIn="xs" href="/products" color="secondary">
+           LA TUA BEVANDERIA
+          </Link>
         </Navbar.Brand>
         <Navbar.Content activeColor={activeColor} hideIn="xs" variant={variant}>
           <Navbar.Link style={{ font:"status-bar"}} isActive={activeProducts} onPress={handlerProducts} href='/products'>PRODOTTI</Navbar.Link>

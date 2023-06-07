@@ -15,7 +15,7 @@ export default function TermsConditions ({ width, height, show, close }){
   
   return (
     <div>
-        <SubmitButton width="200px" text="Terms & Conditions" onPress={handler}/>
+        <SubmitButton width="200px" text="Termini & Condizioni" onPress={handler}/>
      
       <Modal
         closeButton
@@ -39,7 +39,7 @@ export default function TermsConditions ({ width, height, show, close }){
               fontWeight: "bold",
             }}
           >
-            Terms and Conditions
+            Termini & Condizioni
           </Text>
         </Modal.Header>
         <Modal.Body
@@ -79,7 +79,7 @@ export default function TermsConditions ({ width, height, show, close }){
           }}
         >
           <SubmitButton
-            text="Confirm"
+            text="Conferma"
             width="200px"
             height="64px"
             textSize={18}

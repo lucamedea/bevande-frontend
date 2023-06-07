@@ -83,7 +83,7 @@ export default function PrivacyPolicy ({ width, height, show, close })
           }}
         >
           <SubmitButton
-            text="Confirm"
+            text="Conferma"
             width="200px"
             height="64px"
             textSize={18}

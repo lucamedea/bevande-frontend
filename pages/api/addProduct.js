@@ -19,6 +19,8 @@ export async function AddProduct(nome,descrizione,prezzo,categoria,quantita,acti
       {
         headers: {
           "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+
         },
       }
     );

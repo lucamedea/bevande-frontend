@@ -44,37 +44,37 @@ const Settings = () => {
         style={{
         alignContent:"center",
         }}>
-          <DisabledTextField initialValue="Your Name" label="Name:" width="200px"/>
+          <DisabledTextField initialValue="Blog" label="Nome:" width="200px"/>
           <Spacer x="6"/>
-          <PasswordTextField label="Your Password" width="200px"/>
+          <PasswordTextField label="Password" width="200px"/>
       </Row>
       <Row  justify="center"
         xs={12}
         style={{
         alignContent:"center",
         }}>
-            <DisabledTextField initialValue="Your Surname" label="Surname:" width="200px"/>
+            <DisabledTextField initialValue="Neutral" label="Cognome:" width="200px"/>
           <Spacer x="6"/>
-          <PasswordTextField label="New Password" width="200px"/>
+          <PasswordTextField label="Nuova Password" width="200px"/>
           </Row>
           <Row  justify="center"
         xs={12}
         style={{
         alignContent:"center",
         }}>
-            <DisabledTextField initialValue="Your Email" label="Email:" width="200px"/>
+            <DisabledTextField initialValue="neutral.blog@gmail.com" label="Email:" width="200px"/>
           <Spacer x="6"/>
-          <DisabledTextField initialValue="Your Date of Birth" label="Date of Birth:" width="200px"/>
+          <DisabledTextField initialValue="1998-03-11" label="Data di Nascita:" width="200px"/>
           </Row>
           <Row  justify="center"
         xs={12}
         style={{
         alignContent:"center",
         }}>
-          <SubmitButton width="200px" text="Exit" onPress={()=>{ 
+          <SubmitButton width="200px" text="Esci" onPress={()=>{ 
             window.location.replace("/products")}} />
           <Spacer x="7"/>
-          <SubmitButton width="200px" text="Change Password"/>
+          <SubmitButton width="200px" text="Cambia Password"/>
           </Row>
           <Row  justify="center"
         xs={12}

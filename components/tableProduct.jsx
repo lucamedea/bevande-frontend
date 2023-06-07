@@ -60,11 +60,18 @@ function Tabella() {
             <Table.Cell>{item.Proteins}</Table.Cell>
             <Table.Cell>{item.Sugars}</Table.Cell>
             <Table.Cell>{item.active == 1 ? 'Attivo' : 'Disattivo'}</Table.Cell>
-            <Table.Cell><Button size="xs"  onPress={() =>MoficaProdotto(item)}>Modifica</Button></Table.Cell>
+            <Table.Cell><Button size="xs"  onPress={() =>setShowModify(true)}>Modifica</Button></Table.Cell>
             </Table.Row>
         ))}
       </Table.Body>
     </Table>
+    <ModifyProduct
+           width="800px" 
+           height="800px"
+            show={showModify}
+            close={() => setShowModify(false)}
+            productId="1"
+          />
     </>
   );
 }
