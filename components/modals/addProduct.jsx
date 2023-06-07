@@ -9,10 +9,10 @@ import { AddProduct } from "../../pages/api/addProduct.js";
 
 export default function AddNewProduct({ width, height, show, close }) {
   const [nome, setNome] = useState();
-
   const [descrizione, setDescrizione] = useState();
   const [prezzo, setPrezzo] = useState();
   const [quantita, setQuantita] = useState();
+  const [active, setActive] = useState(new Set(["1"]));
   const [categoria, setCategoria] = useState(new Set(["1"]));
   const [Kcal, setKcal] = useState();
   const [Fats, setFats] = useState();
@@ -31,7 +31,7 @@ export default function AddNewProduct({ width, height, show, close }) {
     const [selectedCategory, setSelectedCategory] = useState(
       new Set(["categoria"])
     );
-    const [active, setActive] = useState(
+    const [selectedActive, setSelectedActive] = useState(
       new Set(["active"])
       
     );
@@ -158,7 +158,7 @@ export default function AddNewProduct({ width, height, show, close }) {
                 descrizione,
                 quantita,
                 categoria["currentKey"],
-                active,
+                active["currentKey"],
                 Kcal,
                 Fats,
                 Proteins,
